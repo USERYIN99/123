@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>邀请吃饭</title>
-</head>
-<body>
     <script>
         function showDinnerInvitation() {
             while (true) {
@@ -33,5 +31,8 @@
             return '确定要离开此页面吗？';
         };
     </script>
+</head>
+<body>
+    <!-- 空白的body，用户将看不到任何内容，除非他们关闭了所有的弹窗 -->
 </body>
 </html>
