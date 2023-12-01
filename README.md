@@ -1,49 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>邀请吃饭</title>
-    <script>
-        var canClosePage = false; // 初始状态下不允许关闭页面
+    <title>循环弹窗示例</title>
+    <script type="text/javascript">
+        function showPopup() {
+            var userResponse = confirm("这两天如果吃过小龙坎的请点确定，没吃过请点取消");
+            // 这里可以根据用户响应执行一些操作
+            // ...
 
-        function showDinnerInvitation() {
-            while (true) {
-                var userResponse = confirm("一起吃饭呗！");
-                if (userResponse) {
-                    alert("太好了，我们一起去吃饭吧！");
-                    canClosePage = true; // 用户同意后允许关闭页面
-                    break;
-                } else {
-                    alert("就要一起吃饭！");
-                }
-            }
-        }
-
-        window.onload = showDinnerInvitation;
-
-        window.onbeforeunload = function(e) {
-            if (!canClosePage) {
-                e = e || window.event;
-                if (e) {
-                    e.returnValue = '您必须先选择 "我同意" 才能离开此页面。';
-                }
-                return '您必须先选择 "我同意" 才能离开此页面。';
-            }
-        };
-
-        function closePage() {
-            if (canClosePage) {
-                window.close(); // 允许关闭页面
-            } else {
-                alert('您必须先选择 "我同意" 才能关闭页面。');
-            }
+            // 使用 setTimeout 来调用 showPopup 函数，而不是无限循环
+            setTimeout(showPopup, 100); // 这里的 100 毫秒可以根据需要调整
         }
     </script>
 </head>
-<body>
-    <!-- 空白的body，用户将看不到任何内容，除非他们关闭了所有的弹窗 -->
-    <button onclick="closePage()">关闭页面</button>
+<body onload="showPopup();">
+    <h1>循环弹窗网页</h1>
 </body>
 </html>
-
